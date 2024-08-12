@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
+# Features
+
+- SOLID principles
+- Angular done without additional libraries or frameworks
+- Unit test covegare 70% using jest
+- Feactures: F1, F2, F3, F4, F5, F5
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
