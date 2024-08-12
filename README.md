@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - SOLID principles
 - Angular done without additional libraries or frameworks
 - Unit test covegare 70% using jest
-- Feactures: F1, F2, F3, F4, F5, F5
+- Feactures: F1, F2, F3, F4, F5, F6
 
 ## Development server
 
