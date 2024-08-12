@@ -55,4 +55,20 @@ describe('FinancialDropdowmActionsComponent', () => {
     component.close();
     expect(component.open).toBeFalsy();
   })
+
+  it('should call close() when clicked outside the dropdown', () => {
+    const spy = jest.spyOn(component, 'close');
+
+    const event = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+
+    const outside = document.createElement('div');
+    document.body.appendChild(outside);
+
+    outside.dispatchEvent(event);
+    expect(spy).toHaveBeenCalled();
+  });
 });
