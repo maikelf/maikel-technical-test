@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
-# Features
+## Features
 
 - SOLID principles
 - Angular done without additional libraries or frameworks
