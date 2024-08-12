@@ -1,0 +1,27 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px auto;
+}
+.footer-count-text {
+    flex:  0 0 80%;
+    max-width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.footer-count-selector {
+    flex:  0 0 20%;
+    max-width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.select-input {
+    height: 30px;
+    border-color: #bbb;
+}
+.select-input:focus {
+    border-color: #bbb;
+    box-shadow: 0 0 5px rgba(11, 129, 226, 0.6);
+    outline: none;
+  }

@@ -1,0 +1,13 @@
+@if(isDialogOpen) {
+    <div class="dialog-back">
+        <div class="dialog">
+            <div class="dialog-content">
+                Are you sure you want to delete the product: <b>{{productName}}</b>?
+            </div>
+            <div class="dialog-footer">
+                <button (click)="cancel()">Cancel</button>
+                <button (click)="deleteProduct()" class="btn-delete-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+}

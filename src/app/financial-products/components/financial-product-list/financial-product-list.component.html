@@ -1,0 +1,49 @@
+<div>
+    <app-bank-header />
+    <div class="products-table">
+        @if(loading) {
+            <ngx-skeleton-loader count="5" appearance="line" />
+        }
+        @if (!loading) {
+            <div class="product-table-filer-and-btn">
+                <div class="products-filter-input">
+                    <app-financial-product-filter (filter)="onFilterApply($event)" />
+                </div>
+                <div class="product-btn-add-new">
+                    <app-button-route [path]="'/new-financial-product'" [label]="'Add new product'" />
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Logo</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Release Date</th>
+                        <th scope="col">Revision Date</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (p of productsListElements(); track p) {
+                        <tr>
+                            <td>
+                                <div class="product-logo">
+                                    <img [src]="p.logo" [alt]="p.name" [title]="p.description" />
+                                </div>
+                            </td>
+                            <td>{{p.name}}</td>
+                            <td>{{p.description}}</td>
+                            <td>{{p.date_release | date:'MM/dd/yyyy'}}</td>
+                            <td>{{p.date_revision | date:'MM/dd/yyyy'}}</td>
+                            <td>
+                                <app-financial-dropdowm-actions [id]="p.id" [name]="p.name" (afterDelete)="onDeleteConfirmed(p.id)" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <app-financial-product-footer [productsCount]="productsListElements().length" (paging)="onPagingChange($event)" />
+        }
+    </div>    
+</div>

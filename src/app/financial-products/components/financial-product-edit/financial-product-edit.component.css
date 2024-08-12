@@ -1,0 +1,93 @@
+.products-add-container {
+    width: 60%;
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+}
+.add-new-product-form {
+    max-width: 600px;
+    margin: 20px auto;
+}
+.add-new-product-form-header {
+    text-align: center;
+    border-bottom: solid 1px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.column {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.add-new-product-form-footer {
+    margin: 20px auto;
+    text-align: center;
+}
+.btn {
+    padding: 5px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+.pinput {
+    height: 30px;
+    border-radius: 3px;
+    border: solid 1px #bbb;
+    width: 100%;
+}
+.input-error {
+    border: solid 1px red;
+    box-shadow: 0 0 5px rgba(1255, 0, 0, 0.6);
+}
+.area {
+    height: auto;
+}
+input:focus {
+    border-color: #bbb;
+    box-shadow: 0 0 5px rgba(11, 129, 226, 0.6);
+    outline: none;
+}
+label {
+    font-size: 14px;
+}
+.add-new-product-form-content {
+    margin: 30px auto;
+}
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+.message {
+    border: solid 1px;
+    margin: 10px auto;
+    display: block;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.sk {
+    margin: 20px auto;
+}
+
+.success {
+    color: green;
+    border-color: green;
+}
+.error { 
+    color: red;
+    border-color: red;
+}
+
+@media (max-width: 768px) {
+    .products-add-container {
+        width: 100%;
+        padding: 10px 0px;
+        margin: 0px;
+    }
+    .row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="footer">
+    <div class="footer-count-text">
+        Total: {{productsCount}} products
+    </div>
+    <div class="footer-count-selector">
+        <label>Products by Page: </label>
+        <select (change)="onChangePaging($event)" class="select-input">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+</div>

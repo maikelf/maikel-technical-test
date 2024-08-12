@@ -1,0 +1,17 @@
+<div class="dropdown" (click)="toggle()">
+    <img class="dropdown-btn" src="./assets/menu-vertical-svgrepo-com.svg" />
+    @if(open) {
+        <div class="dropdown-items">
+            <button (click)="goToEdit(id)" type="button">Edit</button>
+            <button (click)="deleteItem()" type="button">Delete</button>
+        </div>
+    }
+</div>
+
+<app-financial-products-delete
+    [productId]="id"
+    [productName]="name"
+    [isDialogOpen]="openDeleteConfirmDialog"
+    (close)="closeDeleteDialog()"
+    (confirm)="deleteItemConfirmed($event)"> 
+/>

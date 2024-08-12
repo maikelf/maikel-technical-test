@@ -1,0 +1,10 @@
+.bank-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.bank-header img {
+    margin-right: 20px;
+}

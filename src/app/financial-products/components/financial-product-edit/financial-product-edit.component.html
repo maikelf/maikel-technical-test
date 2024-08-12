@@ -1,0 +1,132 @@
+<div>
+    <app-bank-header />
+    <div class="products-add-container">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="add-new-product-form">
+            <div class="add-new-product-form-header">
+                <h3>Financial Product Form</h3>
+            </div>
+            @if(loading) {
+                <div class="sk">
+                    <ngx-skeleton-loader count="4" appearance="line" />
+                </div>
+            }
+            @if (message$ | async) {
+                <ng-container *ngIf="(message$ | async) as m">
+                    @if (m.active) {
+                        <div class="add-new-product-form-message">
+                            <div class="message {{m.status}}">
+                                {{m.text}}
+                            </div>
+                        </div>
+                    }
+                </ng-container>
+            }
+            @if (!loading && !error) {
+                <div class="add-new-product-form-content">
+                    <div class="row">
+                        <div class="column">
+                            <label for="id">ID:</label><br />
+                            <input id="id" 
+                                formControlName="id" 
+                                type="text" 
+                                class="pinput"
+                            >
+                        </div>
+                        <div class="column">
+                            <label for="name">Name:</label><br />
+                            <input id="name" 
+                                formControlName="name"
+                                type="text"
+                                class="pinput"
+                                [ngClass]="{'input-error': name?.invalid && (name?.dirty|| name?.touched)}"
+                            >
+                            @if(name?.invalid && (name?.dirty|| name?.touched)) {
+                                <div class="error-message">
+                                    @if(name?.errors?.['required']) {
+                                        <div>Name is required</div>
+                                    }
+                                    @if(name?.errors?.['minlength']) {
+                                        <div>Name must be at least 5 characters</div>
+                                    }
+                                    @if(name?.errors?.['maxlength']) {
+                                        <div>Name must be at maximum 100 characters</div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <label for="description">Description:</label><br />
+                            <textarea 
+                                id="description" 
+                                formControlName="description" 
+                                class="pinput area"
+                                [ngClass]="{'input-error': description?.invalid && (description?.dirty|| description?.touched)}"
+                            ></textarea>
+                            @if(description?.invalid && (description?.dirty|| description?.touched)) {
+                                <div class="error-message">
+                                    @if(description?.errors?.['required']) {
+                                        <div>description is required</div>
+                                    }
+                                    @if(description?.errors?.['minlength']) {
+                                        <div>description must be at least 10 characters</div>
+                                    }
+                                    @if(description?.errors?.['maxlength']) {
+                                        <div>description must be at maximum 200 characters</div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="column">
+                            <label for="logo">Logo:</label><br />
+                            <input id="logo" 
+                                formControlName="logo" 
+                                type="text" 
+                                class="pinput"
+                                [ngClass]="{'input-error': logo?.invalid && (logo?.dirty|| logo?.touched)}"
+                            >
+                            @if(logo?.invalid && (logo?.dirty|| logo?.touched)) {
+                                <div class="error-message">
+                                    @if(logo?.errors?.['required']) {
+                                        <div>logo is required</div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <label for="date-release">Release Date:</label><br />
+                            <input id="date-release" 
+                                formControlName="date_release" 
+                                type="date" 
+                                class="pinput"
+                                [ngClass]="{'input-error': date_release?.invalid && (date_release?.dirty|| date_release?.touched)}"
+                            >
+                            @if(date_release?.invalid && (date_release?.dirty|| date_release?.touched)) {
+                                <div class="error-message">
+                                    @if(date_release?.errors?.['required']) {
+                                        <div>Release date is required</div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="column">
+                            <label for="date-revision">Revision Date:</label><br />
+                            <input id="date-revision" formControlName="date_revision" type="date" class="pinput" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-new-product-form-footer">
+                    <button type="submit" [disabled]="productForm.invalid" class="btn">Edit</button>
+                    <app-button-route [path]="'/'" [label]="'Go to products list'" />
+                </div>
+            }
+            @if (error) {
+                <app-button-route [path]="'/'" [label]="'Go to products list'" />
+            }
+        </form>          
+    </div>
+</div>
+
